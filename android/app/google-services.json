@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "131023730286",
+    "project_id": "fanafitworld",
+    "storage_bucket": "fanafitworld.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131023730286:android:98fa4c8f7f652845be987f",
+        "android_client_info": {
+          "package_name": "com.example.fana_fitworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131023730286-cmlvhkbskt1osqpvdidcu5un0q19dddd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fana_fitworld",
+            "certificate_hash": "358f09086f9802d1234f23ae8a4102e46fd01935"
+          }
+        },
+        {
+          "client_id": "131023730286-nbl72q53tncb16u63ohifeab7frdmnls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmdgwBo2up3ym8nG3aOygEbvYj59NtKXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131023730286-nbl72q53tncb16u63ohifeab7frdmnls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
