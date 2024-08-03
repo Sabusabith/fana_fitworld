@@ -1,4 +1,7 @@
+import 'package:animate_do/animate_do.dart';
+import 'package:fana_fitworld/utils/appcolors.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class DrawerPAge extends StatelessWidget {
   DrawerPAge({required this.name});
@@ -10,64 +13,49 @@ class DrawerPAge extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Container(
-        width: size.width,
-        height: size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: 150,
-              height: 150,
+            // Container(
+            //   width: 100,
+            //   height: 100,
+            //   child: Image.asset(
+            //     "Assets/Images/logo.png",
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
+            SizedBox(
+              height: 40,
+            ),
+            SlideInLeft(
+              from: 100,
+              duration: Duration(milliseconds: 500),
               child: Image.asset(
-                "Assets/Images/logo.png",
+                "Assets/Images/gym.png",
+                height: 60,
+                width: 180,
                 fit: BoxFit.cover,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 13),
-              child: Row(
-                children: [
-                  Text(
-                    "Welcome,",
-                    style: TextStyle(
-                        color: Colors.white,
-                        letterSpacing: 3,
-                        fontFamily: "myfontregular",
-                        fontSize: 20),
-                  ),
+            SlideInLeft(
+              from: 100,
+              duration: Duration(milliseconds: 500),
+              child: GradientText(
+                colors: [
+                  ksecondarycolor,
+                  kprimerycolor,
                 ],
+                "Fana Fit",
+                style: TextStyle(
+                  fontFamily: "myfontregular",
+                  fontSize: 20,
+                ),
               ),
             ),
+
             SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 50,
-                    height: 50,
-                    child: Text(
-                      "User : ",
-                      style: TextStyle(color: Colors.grey.shade400),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 50,
-                      child: Text(
-                        name! ?? "Fana Fit World",
-                        style: TextStyle(
-                            color: Colors.grey.shade400, fontSize: 15),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+              height: 22,
             ),
             SizedBox(
               height: 22,
@@ -77,43 +65,66 @@ class DrawerPAge extends StatelessWidget {
               height: 1,
             ),
             SizedBox(
-              height: 20,
+              height: 60,
             ),
-            ListTile(
-              leading: Icon(
-                Icons.fastfood_rounded,
-                color: Colors.grey.shade200,
-                size: 30,
-              ),
-              title: Text(
-                "Diet Plan",
-                style: TextStyle(color: Colors.grey.shade300, fontSize: 18),
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios_outlined,
-                color: Colors.grey.shade400,
-                size: 15,
+            SlideInLeft(
+              from: 100,
+              duration: Duration(milliseconds: 700),
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: kprimerycolor, width: 1.5)),
+                child: Center(
+                  child: Icon(
+                    Icons.fastfood_rounded,
+                    color: Colors.grey.shade200,
+                    size: 60,
+                  ),
+                ),
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 40,
             ),
-            ListTile(
-              leading: Icon(
-                Icons.privacy_tip_outlined,
-                size: 30,
-                color: Colors.grey.shade200,
+            SlideInLeft(
+              from: 100,
+              duration: Duration(milliseconds: 900),
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: kprimerycolor, width: 1.5)),
+                child: Center(
+                  child: Icon(
+                    Icons.privacy_tip_outlined,
+                    size: 60,
+                    color: Colors.grey.shade200,
+                  ),
+                ),
               ),
-              title: Text(
-                "Privacy Policy",
-                style: TextStyle(color: Colors.grey.shade300, fontSize: 18),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            SlideInLeft(
+              from: 100,
+              duration: Duration(milliseconds: 1100),
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: kprimerycolor, width: 1.5)),
+                child: Icon(
+                  Icons.settings,
+                  size: 60,
+                  color: Colors.grey.shade200,
+                ),
               ),
-              trailing: Icon(
-                Icons.arrow_forward_ios_outlined,
-                color: Colors.grey.shade400,
-                size: 15,
-              ),
-            )
+            ),
           ],
         ),
       ),

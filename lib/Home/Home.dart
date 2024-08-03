@@ -2,122 +2,129 @@ import 'package:fana_fitworld/Home/Advanced/Advanced.dart';
 import 'package:fana_fitworld/Home/Beginer/Beginer.dart';
 import 'package:fana_fitworld/Home/DrawerPage/DrawerPAge.dart';
 import 'package:fana_fitworld/Home/Intermediet/Intermediet.dart';
+import 'package:fana_fitworld/utils/appcolors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+import '../controller/home_controller.dart';
 
-import '../Login/Shared.dart';
-
-class Home extends StatefulWidget {
-  const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getUserData();
-  }
-
-  dynamic name;
-
-  dynamic email;
-  getUserData() async {
-    name = await getSavedName("name");
-    email = await getSavedName("email");
-
-    setState(() {});
-
-    print(name);
-  }
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final HomeController homeController = Get.put(HomeController());
     Size size = MediaQuery.of(context).size;
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         drawer: Drawer(
-            backgroundColor: Color.fromARGB(255, 30, 28, 28),
-            child: DrawerPAge(
-              name: name,
-            )),
+          shape: Border.all(),
+          width: size.width / 2.1,
+          backgroundColor: Colors.transparent.withOpacity(.9),
+          child: Obx(() => DrawerPAge(
+            name: homeController.name.value,
+          )),
+        ),
         appBar: AppBar(
+          iconTheme: IconThemeData(color: kprimerycolor),
           centerTitle: true,
-          title: Text(
-            "Fana ",
-            style: TextStyle(
-                color: Color(0xffD0FD3E),
-                fontFamily: "myfontregular",
-                fontSize: 27),
+          title: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 0, end: 1),
+            duration: Duration(seconds: 2),
+            curve: Curves.easeInOut,
+
+            builder: (context, double scale, child) {
+              return Transform.scale(
+                scale: scale,
+                child: GradientText(
+                  colors: [
+                    ksecondarycolor,
+                    kprimerycolor,
+                
+                  ],
+                  "Fana Fit",
+                  style: TextStyle(
+                  
+                 
+                    fontFamily: "myfontregular",
+                    fontSize: 27,
+                  ),
+                ),
+              );
+            },
           ),
           leadingWidth: 75,
           toolbarHeight: 100,
           backgroundColor: Colors.black,
-          actions: [
-            Image.asset("Assets/Images/logo.png"),
-            SizedBox(
-              width: 20,
-            )
-          ],
           bottom: TabBar(
-              unselectedLabelColor: Colors.grey.shade400,
-              indicatorSize: TabBarIndicatorSize.label,
-              labelColor: Colors.black,
-              indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Color(0xffD0FD3E)),
-              tabs: [
-                Tab(
-                  height: 35,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border.all(color: Color(0xffD0FD3E), width: 1)),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("Beginner"),
-                    ),
+            dividerColor: Colors.transparent,
+            unselectedLabelColor: Colors.grey.shade400,
+            indicatorSize: TabBarIndicatorSize.label,
+            labelColor: Colors.black,
+            indicator: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                ksecondarycolor,
+                kprimerycolor
+              ],),
+              borderRadius: BorderRadius.circular(50),
+              color: kprimerycolor,
+            ),
+            tabs: [
+              Tab(
+                height: 35,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(color: kprimerycolor, width: 1,),
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("Beginner"),
                   ),
                 ),
-                Tab(
-                  height: 35,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border.all(color: Color(0xffD0FD3E), width: 1)),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("Medium"),
-                    ),
+              ),
+              Tab(
+                height: 35,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(color:kprimerycolor, width: 1),
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("Medium"),
                   ),
                 ),
-                Tab(
-                  height: 35,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border.all(color: Color(0xffD0FD3E), width: 1)),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("Advance"),
-                    ),
+              ),
+              Tab(
+                height: 35,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(color: kprimerycolor, width: 1),
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("Advance"),
                   ),
                 ),
-              ]),
+              ),
+            ],
+          ),
         ),
         backgroundColor: Colors.black,
         body: SafeArea(
           child: SizedBox(
-              width: size.width,
-              height: size.height,
-              child: TabBarView(children: [
+            width: size.width,
+            height: size.height,
+            child: TabBarView(
+              children: [
                 Beginer(),
                 InterMediet(),
                 Advanced(),
-              ])),
+              ],
+            ),
+          ),
         ),
       ),
     );

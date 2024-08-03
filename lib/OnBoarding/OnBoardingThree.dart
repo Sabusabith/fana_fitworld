@@ -6,7 +6,7 @@ class OnBoardingThree extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
+      body: SafeArea(top: false,
         child: SizedBox(
           width: size.width,
           height: size.height,

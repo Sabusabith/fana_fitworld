@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:fana_fitworld/Gender/Gender.dart';
 import 'package:fana_fitworld/Home/Home.dart';
 import 'package:fana_fitworld/Login/Login.dart';
@@ -34,16 +35,18 @@ class _OnBordingState extends State<OnBording> {
             controller: _controller,
             children: [OnBoardingOne(), OnBoardingTwo(), OnBoardingThree()],
           ),
-          Container(
-            alignment: Alignment(0, 0.8),
-            child: SmoothPageIndicator(
-              controller: _controller,
-              count: 3,
-              effect: WormEffect(
-                  dotColor: Colors.grey.shade600,
-                  activeDotColor: Color(0xffD0FD3E),
-                  dotHeight: 5,
-                  dotWidth: 25),
+          SlideInUp(from: 100,delay: Duration(milliseconds: 700),
+            child: Container(
+              alignment: Alignment(0, 0.8),
+              child: SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                effect: WormEffect(
+                    dotColor: Colors.grey.shade600,
+                    activeDotColor: Color(0xffD0FD3E),
+                    dotHeight: 5,
+                    dotWidth: 25),
+              ),
             ),
           ),
           lastpage

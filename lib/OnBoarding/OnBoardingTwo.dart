@@ -7,6 +7,7 @@ class OnBoardingTwo extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
+        top: false,
         child: SizedBox(
           width: size.width,
           height: size.height,

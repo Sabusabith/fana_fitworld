@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingOne extends StatelessWidget {
@@ -8,7 +9,7 @@ class OnBoardingOne extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
+      body: SafeArea(top: false,
         child: SizedBox(
           width: size.width,
           height: size.height,
@@ -43,19 +44,22 @@ class OnBoardingOne extends StatelessWidget {
                     color: Colors.grey.shade500,
                   ),
                 )),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 180),
-              child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    "MEET YOUR COACH\,\nSTART YOUR JOURNEY",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        letterSpacing: 2,
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontFamily: "myfontregular"),
-                  )),
+            FadeIn(delay: Duration(milliseconds: 500),
+            animate: true,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 180),
+                child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      "MEET YOUR COACH\,\nSTART YOUR JOURNEY",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          letterSpacing: 2,
+                          fontSize: 17,
+                          color: Colors.white,
+                          fontFamily: "myfontregular"),
+                    )),
+              ),
             )
           ]),
         ),

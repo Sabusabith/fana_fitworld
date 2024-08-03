@@ -1,50 +1,40 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'Login/InternetCheck.dart';
 import 'NoInternet/NoConnection.dart';
 import 'Splash/Splash.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
+import 'controller/networkController.dart';
+import 'package:animate_do/animate_do.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+ 
+  if (Platform.isIOS) {
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "AIzaSyDdzFhuu0nEJ7GWN9Yph9ajkLNhs7X8CNs",
+            appId: "1:131023730286:ios:9a37febf49e49b1abe987f",
+            messagingSenderId: "131023730286",
+            projectId: "fanafitworld"));
+  } else {
+    await Firebase.initializeApp();
+  }
+  
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool? network;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    checkConnection();
-  }
-
-  checkConnection() async {
-    network = await internetCheck();
-    setState(() {});
-    if (network!) {
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("No internet connection!")));
-      Future.delayed(Duration(seconds: 1))
-          .then((value) => Get.to(NoConnection()));
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
+    // Initialize the NetworkController
+    Get.put(NetworkController());
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: Splash(),

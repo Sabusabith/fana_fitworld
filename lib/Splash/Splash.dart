@@ -59,7 +59,7 @@ class _SplashState extends State<Splash> {
             height: 300,
             child: Center(
               child: Image(
-                image: AssetImage("Assets/Images/logo.png"),
+                image: AssetImage("Assets/Images/logo.png",),
                 fit: BoxFit.cover,
               ),
             ),

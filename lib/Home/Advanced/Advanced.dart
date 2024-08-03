@@ -19,8 +19,8 @@ class Advanced extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
-                "For Advance",
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                "FOR ADVANCE",
+                style: TextStyle(color: Colors.white, fontSize: 18,letterSpacing: 2),
               ),
             ),
             SizedBox(

@@ -1,4 +1,6 @@
+import 'package:fana_fitworld/utils/video_feed/feed.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Beginer extends StatelessWidget {
   @override
@@ -19,8 +21,8 @@ class Beginer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
-                "For Beginners",
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                "FOR BEGINNERS",
+                style: TextStyle(color: Colors.white, fontSize: 18,letterSpacing: 2),
               ),
             ),
             SizedBox(
@@ -39,23 +41,25 @@ class Beginer extends StatelessWidget {
                         SizedBox(
                           height: 30,
                         ),
-                        Container(
-                            width: size.width,
-                            height: 180,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                image: DecorationImage(
-                                    image: AssetImage(beginerList[index]),
-                                    fit: BoxFit.fitWidth)),
-                            child: Center(
-                              child: Text(
-                                beginertxt[index],
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ))
+                        InkWell(onTap: (){Get.to(Feed());},
+                          child: Container(
+                              width: size.width,
+                              height: 180,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  image: DecorationImage(
+                                      image: AssetImage(beginerList[index]),
+                                      fit: BoxFit.fitWidth)),
+                              child: Center(
+                                child: Text(
+                                  beginertxt[index],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )),
+                        )
                       ],
                     );
                   },

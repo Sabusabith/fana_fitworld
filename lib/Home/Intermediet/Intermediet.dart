@@ -19,8 +19,8 @@ class InterMediet extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
-                "For Intermediate",
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                "FOR INTERMEDIATE",
+                style: TextStyle(color: Colors.white, fontSize: 18,letterSpacing: 2),
               ),
             ),
             SizedBox(
