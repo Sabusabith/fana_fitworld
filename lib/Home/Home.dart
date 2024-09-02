@@ -2,8 +2,10 @@ import 'package:fana_fitworld/Home/Advanced/Advanced.dart';
 import 'package:fana_fitworld/Home/Beginer/Beginer.dart';
 import 'package:fana_fitworld/Home/DrawerPage/DrawerPAge.dart';
 import 'package:fana_fitworld/Home/Intermediet/Intermediet.dart';
+import 'package:fana_fitworld/screens/fit/fit_home.dart';
 import 'package:fana_fitworld/utils/appcolors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import '../controller/home_controller.dart';
@@ -26,6 +28,13 @@ class Home extends StatelessWidget {
           )),
         ),
         appBar: AppBar(
+          actions: [
+            GestureDetector(onTap: () {
+              Get.to(FitHome());
+            },child: Icon(Icons.alarm_add,color: kprimerycolor,size: 26,)),
+            
+            SizedBox(width: 25,)
+          ],
           iconTheme: IconThemeData(color: kprimerycolor),
           centerTitle: true,
           title: TweenAnimationBuilder(

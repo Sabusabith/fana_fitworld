@@ -10,9 +10,10 @@ import 'Splash/Splash.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'controller/networkController.dart';
 import 'package:animate_do/animate_do.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- 
+
   if (Platform.isIOS) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
@@ -23,7 +24,7 @@ void main() async {
   } else {
     await Firebase.initializeApp();
   }
-  
+
   runApp(MyApp());
 }
 
